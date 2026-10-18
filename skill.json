@@ -1,0 +1,33 @@
+{
+  "name": "genpark-personal-agent-biometric-sleep-readiness-workload-allocator-skill",
+  "version": "1.0.0",
+  "description": "Personal Agent Biometric Sleep & Readiness Workload Allocator. Ingests sleep debt, REM/Deep ratios, and HRV recovery metrics to calculate an objective cognitive readiness index and dynamically reschedule high-intensity deep work blocks.",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.llinkedin.com/company/92955550",
+  "tools": [
+    {
+      "name": "allocate_cognitive_workload",
+      "description": "Align daily calendar tasks with user biometric recovery score and circadian capacity.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "biometrics": {
+            "type": "object",
+            "description": "Sleep_hours, deep_rem_hours, hrv_baseline_ratio, resting_heart_rate."
+          },
+          "planned_tasks": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "Tasks with name, cognitive_demand (HIGH, MEDIUM, LOW), duration_mins."
+          }
+        },
+        "required": [
+          "biometrics",
+          "planned_tasks"
+        ]
+      }
+    }
+  ]
+}
